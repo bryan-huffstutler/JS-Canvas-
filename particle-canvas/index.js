@@ -37,7 +37,7 @@ class Particle {
     constructor() {
         this.x = mouse.x
         this.y = mouse.y
-        this.size = Math.random() * 5 + 1
+        this.size = Math.random() * 3 + 1
         this.speedX = Math.random() * 3 - 1.5
         this.speedY = Math.random() * 3 - 1.5
         this.color = 'hsl(' + hue + ', 100%, 50%)'
@@ -58,19 +58,19 @@ class Particle {
 function handleParticles() {
     for (let i = 0; i < particlesArray.length; i++) {
         
-        for (let j = i; j < particlesArray.length; j++) {
-            const dx = particlesArray[i].x - particlesArray[j].x
-            const dy = particlesArray[i].y - particlesArray[j].y
-            const dist = Math.sqrt(dx * dx + dy * dy)
-            if(dist > 100) {
-                ctx.beginPath()
-                ctx.strokeStyle = particlesArray[i].color;
-                ctx.lineWidth = particlesArray[i].size/10;
-                ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
-                ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
-                ctx.stroke()
-            }
-        }
+        // for (let j = i; j < particlesArray.length; j++) {
+        //     const dx = particlesArray[i].x - particlesArray[j].x
+        //     const dy = particlesArray[i].y - particlesArray[j].y
+        //     const dist = Math.sqrt(dx * dx + dy * dy)
+        //     if(dist > 100) {
+        //         ctx.beginPath()
+        //         ctx.strokeStyle = particlesArray[i].color;
+        //         ctx.lineWidth = particlesArray[i].size/10;
+        //         ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
+        //         ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
+        //         ctx.stroke()
+        //     }
+        // }
         particlesArray[i].update();
         particlesArray[i].draw();
         if (particlesArray[i].size <= 0.3){
